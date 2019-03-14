@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.2" tiledversion="2019.01.30" orientation="orthogonal" renderorder="right-down" width="80" height="30" tilewidth="32" tileheight="32" infinite="0" backgroundcolor="#9684e6" nextlayerid="4" nextobjectid="14">
  <tileset firstgid="1" name="bricks" tilewidth="32" tileheight="32" tilecount="630" columns="21">
-  <image source="tileData/Tiles/bricks_02.jpg" width="700" height="970"/>
+  <image source="Tiles/bricks_02.jpg" width="700" height="970"/>
  </tileset>
  <tileset firstgid="631" name="metal" tilewidth="32" tileheight="32" tilecount="1032" columns="43">
-  <image source="tileData/Tiles/metal_06.jpg" width="1400" height="798"/>
+  <image source="Tiles/metal_06.jpg" width="1400" height="798"/>
  </tileset>
  <layer id="1" name="background" width="80" height="30">
   <data encoding="base64" compression="zlib">
