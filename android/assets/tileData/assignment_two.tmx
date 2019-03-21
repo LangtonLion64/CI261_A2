@@ -1,59 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="2019.01.30" orientation="orthogonal" renderorder="right-down" width="80" height="30" tilewidth="32" tileheight="32" infinite="0" backgroundcolor="#9684e6" nextlayerid="4" nextobjectid="14">
- <tileset firstgid="1" name="bricks" tilewidth="32" tileheight="32" tilecount="630" columns="21">
-  <image source="Tiles/bricks_02.jpg" width="700" height="970"/>
- </tileset>
- <tileset firstgid="631" name="metal" tilewidth="32" tileheight="32" tilecount="1032" columns="43">
-  <image source="Tiles/metal_06.jpg" width="1400" height="798"/>
- </tileset>
- <layer id="1" name="background" width="80" height="30">
+<map version="1.2" tiledversion="2019.01.30" orientation="orthogonal" renderorder="right-down" width="124" height="30" tilewidth="32" tileheight="32" infinite="0" backgroundcolor="#9684e6" nextlayerid="8" nextobjectid="14">
+ <tileset firstgid="1" source="GroundTiles.tsx"/>
+ <layer id="6" name="background" width="124" height="30" visible="0">
   <data encoding="base64" compression="zlib">
-   eJzl2VPfmAUAxuG9s23btm3btm201byabdRs22acUUMNNbuhrn2O5+A6/Z/fvzskVKhQoQlDWMIRnghEJBKRiUJUohGdGMQkFrGJQ1ziERKgZnwSkJBEJCYJSUlGclKQklSkJg1pSUd6MpCRTGQOWDMLWclGdnKQk1zkJg95yUd+ClCQQhSmCEUpRnFKBKxZklKUpgxlKUd5KlCRSlSmClWpRnVqUJNa1KYOdQPWrEd9GtCQRjSmCU1pRnNa0JJWtKYNbWlHezrQkU4Ba3amC13pRnd60JNe9KYPfelHfwYwkEEMZghDGcZXAWsOZwRf8w0jGcVoxjCWcYxnAt/yHROZxGSmMJVpTA9YcwYzmcVs5jCXecxnAQtZxGKWsJRlfM8PLGcFK1kVsOZq1rCWdaxnAxvZxGa2sJVtbGcHO9nFbvawl33sD1jzAAc5xGGOcJRjHOcEJznFac5wlnOc5wI/8hM/80vAmr/yGxe5xGWucJVrXOcGN7nF7/zBbe5wl3v8yV/cD1jzAQ95xN/8w2Oe8JRnPOcFL3nFa97wlne8518+8DFgzU985j++DMIQQhOGsIQjPBGISCQiE4WoRCM6MYhJrJBgNWMTh7jEIz4JSEgiEpOEpCQjOSlISSpSk4a0pCN9wJoZyEgmMpOFrGQjOznISS5yk4e85CM/BShIIQpTJGDNohSjOCUoSSlKU4aylKM8FahIJSpThapUozo1qBmwZi1qU4e61KM+DWhIIxrThKY0ozktaEkrWtOGtrQLWLM9HehIJzrTha50ozs96EkvetOHvvSjPwMYyCAGB6w5hKEM4yuGM4Kv+YaRjGI0YxjLOMYzgW/5jolMYnLAmlOYyjSmM4OZzGI2c5jLPOazgIUsYjFLWMoyvueHgDWXs4KVrGI1a1jLOtazgY1sYjNb2Mo2trODnexid8Cae9jLPvZzgIMc4jBHOMoxjnOCk5ziNGc4yznOcyFgzR/5iZ/5hV/5jYtc4jJXuMo1rnODm9zid/7gNne4G7DmPf7kL+7zgIc84m/+4TFPeMoznvOCl7ziNW94y7uANd/zLx/4yCc+8x9fztEQQhOGsIQjPBGISCQiE4WoRAsdrGZ0YhCTWMQmDnGJR3wSkJBEJCYJSUlGclKQklSkDlgzDWlJR3oykJFMZCYLWclGdnKQk1zkJg95yUd+CgSsWZBCFKYIRSlGcUpQklKUpgxlKUd5KlCRSlSmClUD1qxGdWpQk1rUpg51qUd9GtCQRjSmCU1pRnNa0JJWAWu2pg1taUd7OtCRTnSmC13pRnd60JNe9KYPfelH/4A1/wfInDlp
+   eJztwQENAAAAwqD3T20ON6AAAAAAAAAAAAAAAAAAAHgyOiAAAQ==
   </data>
  </layer>
- <layer id="2" name="platforms" width="80" height="30">
+ <layer id="7" name="platforms" width="124" height="30">
   <data encoding="base64" compression="zlib">
-   eJzt2MdPlEEcxvFlX+EE9nY3xu7V3sB6sWBXxN6lo9Sl997ZvhRj/D8ERRNjDLaz3u0mxij4/cWrMTDZ8k6cJ/kc933nfXbenZl1OExMTExMTEyinQJnrEegb6S7IdOfcqS7p6Y/5Uh3301/ypHullixHoW+ke72m/6UI90Vmf6UI+vvXdOfcmT9fWb6U46svz/+o/7SeNYzSMdZnMN5XMBFXMJlXMFVXMP1f/Qj6+/SGdEbfziTGO9wJGEmZmE25mAu5mE+FmAhFmFxfPjHIOvvQU37W0cf67EBG7EJm7EFW7EN27EDyUiJQH+y/pZo2p8dInuXe5r195Z59C4Cc0klsnd5rll/SQn85iXEehR/InuXn2Hqb5w58QIv8Qqv8cYm8yRSkb3LsjA94wTXmZRrMTfi4IT1l3mSzPeVgp3Yhd3Yg73Yp9m7IHuX1CjPkQzumYksZCMHuchDvmb9yd7FNYX+5B3/hQlMyjPymTg4YU2zfzef98ALH/wIIIiQZv3J3uX+FJ5f3vHlWIGVWIXVWIO10+zvAfccwSge4hHG8BhPNOtP9i7jUX5/33PPD/iIT/iML/iKb5r1J3sX+Q+mEEUoRglK4UIZylGBSlShGjWoRR3q0YBGNKEZLWhFG9rRgU50oRs96EUf+uGGB1744EcAQYQwgEGnPccqZ5ADco7DIaTiMI7gKI7hOE7gJE7htKV+Fr+Bm7iFDGQiC9nIQS7ykI/buIMCFFr2HKucQYrlHIdSuFCGclSgElWoRg1qUYd6NKARTWhGC1rRhnZ0oBNd6EYPetGHfrjhgRc++BFAECEMYBBDGLbpWH8D7JPCkw==
+   eJztxbENACAIADCixkT/P5iFK6BdGgEAAAAAAAAAAAAAAABM8erv1u9golUft/7WCc7MA10=
   </data>
  </layer>
  <objectgroup id="3" name="physics" offsetx="-1" offsety="-1">
-  <object id="2" name="platform_2" type="RectangleMapObject" x="575.647" y="673.941" width="189.196" height="63">
+  <object id="2" name="platform_2" type="RectangleMapObject" x="573.647" y="89.941" width="189.196" height="63">
    <properties>
     <property name="material" value="ice"/>
    </properties>
   </object>
-  <object id="4" name="platform_3" type="RectangleMapObject" x="899.078" y="708.686" width="244.059" height="156">
+  <object id="4" name="platform_3" type="RectangleMapObject" x="865.078" y="92.686" width="244.059" height="156">
    <properties>
     <property name="material" value="ice"/>
    </properties>
   </object>
-  <object id="5" name="platform_4" type="Rectangle" x="1407.33" y="607.176" width="63.3529" height="61">
+  <object id="5" name="platform_4" type="Rectangle" x="1375.33" y="113.176" width="63.3529" height="61">
    <properties>
     <property name="material" value="ice"/>
    </properties>
   </object>
-  <object id="8" name="platform_1" type="RectangleMapObject" x="290.843" y="766.804" width="250" height="66.2745"/>
-  <object id="9" name="platform_0" type="RectangleMapObject" x="1" y="863.843" width="2557.33" height="32">
+  <object id="8" name="platform_1" type="RectangleMapObject" x="282.843" y="68.804" width="250" height="66.2745"/>
+  <object id="9" name="platform_0" type="RectangleMapObject" x="1" y="833.843" width="3967.33" height="126">
    <properties>
     <property name="material" value="ice"/>
    </properties>
   </object>
-  <object id="10" name="leftWall" type="RectangleMapObject" x="5" y="195" width="25" height="700">
+  <object id="10" name="leftWall" type="RectangleMapObject" x="3" y="9" width="25" height="830">
    <properties>
     <property name="material" value="ice"/>
    </properties>
   </object>
-  <object id="11" name="rightWall" type="RectangleMapObject" x="2527.5" y="195" width="25" height="700">
+  <object id="11" name="rightWall" type="RectangleMapObject" x="3939.5" y="-3" width="25" height="838">
    <properties>
     <property name="material" value="ice"/>
    </properties>
   </object>
-  <object id="12" name="platform_3" type="RectangleMapObject" x="1475.02" y="507.324" width="412.314" height="63">
-   <properties>
-    <property name="material" value="ice"/>
-   </properties>
-  </object>
-  <object id="13" x="1889.63" y="482.569" width="447.059" height="29.8039">
+  <object id="12" name="platform_3" type="RectangleMapObject" x="1551.02" y="41.324" width="412.314" height="63">
    <properties>
     <property name="material" value="ice"/>
    </properties>
