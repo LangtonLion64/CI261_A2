@@ -6,11 +6,15 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
+import com.group.game.utility.Constants;
 
 import java.util.Comparator;
 
+import static com.group.game.utility.Constants.COLLISION_RECT_HEIGHT;
+import static com.group.game.utility.Constants.COLLISION_RECT_WIDTH;
 import static com.group.game.utility.Constants.FRAME_DURATION;
 import static com.group.game.utility.Constants.PLAYER_HEIGHT;
 import static com.group.game.utility.Constants.PLAYER_WIDTH;
@@ -25,6 +29,7 @@ public abstract class AnimatedSprite extends Sprite {
     protected Animation animation;
     protected Animation.PlayMode playmode;
     private TextureAtlas atlas;
+    private Rectangle collisionRectangle;
 
     public AnimatedSprite(String atlasString, Texture t, Vector2 pos){
         super(t,PLAYER_WIDTH,PLAYER_HEIGHT);
@@ -32,10 +37,23 @@ public abstract class AnimatedSprite extends Sprite {
         this.setY(pos.y);
         playmode = Animation.PlayMode.NORMAL;
         initAtlas(atlasString);
+        createCollisionRect();
     }
+
+    public void createCollisionRect(){
+        this.collisionRectangle = new Rectangle(this.getX(),this.getY(), COLLISION_RECT_WIDTH, COLLISION_RECT_HEIGHT);
+    }
+
+    public void updateCollisionData() {
+        collisionRectangle.setX(this.getX());
+        collisionRectangle.setY(this.getY());
+    }
+
+    private Rectangle getCollisionRectangle() { return collisionRectangle; }
 
     public void update(float animationTime){
         this.setRegion((TextureRegion) animation.getKeyFrame(animationTime));
+        updateCollisionData();
     }
 
     private void initAtlas(String atlasString){

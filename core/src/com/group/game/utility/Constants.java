@@ -31,6 +31,10 @@ public class Constants {
     public static final float DENSITY=.5f;
     public static final float FRICTION=.5f;
     public static final float RESTITUTION=.5f;
+
+    public static final float COLLISION_RECT_WIDTH=50;
+    public static final float COLLISION_RECT_HEIGHT=50;
+
     //impulse strength
     public static final float FORCE_X=30f;
     public static final float FORCE_Y=30f;
