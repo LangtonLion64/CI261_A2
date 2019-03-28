@@ -71,6 +71,7 @@ project(":android") {
         natives "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-arm64-v8a"
         natives "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-x86"
         natives "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-x86_64"
+        implementation fileTree(dir:'../libs',include: '*.jar')
         
     }
 }
@@ -82,7 +83,7 @@ project(":core") {
     dependencies {
         implementation "com.badlogicgames.gdx:gdx:$gdxVersion"
         implementation "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
-        
+        implementation fileTree(dir:'../libs',include: '*.jar')
     }
 }
 
