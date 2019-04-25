@@ -72,7 +72,7 @@ public class HUD implements Disposable {
     private void createScoreAndTimer(){
         countdownLabel = new Label(String.format("%03d", worldTimer),
                 new Label.LabelStyle(new BitmapFont(), Color.RED));
-        scoreLabel = new Label(String.format("%03d", score),
+        scoreLabel = new Label(String.format("%06d", score),
                 new Label.LabelStyle(new BitmapFont(), Color.BLUE));
         timeLabel = new Label("COUNTDOWN",
                 new Label.LabelStyle(new BitmapFont(), Color.RED));

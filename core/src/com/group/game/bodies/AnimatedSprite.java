@@ -14,11 +14,14 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 import java.util.Comparator;
 
+import static com.group.game.utility.Constants.BADGE_ATLAS;
 import static com.group.game.utility.Constants.COLLISION_RECT_HEIGHT;
 import static com.group.game.utility.Constants.COLLISION_RECT_WIDTH;
 import static com.group.game.utility.Constants.FRAME_DURATION;
 import static com.group.game.utility.Constants.PLAYER_HEIGHT;
 import static com.group.game.utility.Constants.PLAYER_WIDTH;
+import static com.group.game.utility.Constants.X;
+import static com.group.game.utility.Constants.Y;
 
 
 /**
@@ -42,6 +45,10 @@ public abstract class AnimatedSprite extends Sprite {
         Array<TextureAtlas.AtlasRegion> regions = new
                 Array<TextureAtlas.AtlasRegion>(atlas.getRegions());
         regions.sort(new RegionComparator());
+    }
+
+    public void setAnimation(Animation.PlayMode mode){
+        animation.setPlayMode(mode);
     }
 
     public void createCollisionRect(){
