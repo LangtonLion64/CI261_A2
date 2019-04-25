@@ -5,6 +5,10 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
 
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by gerard on 09/11/2016.
  * Updated 17/02/18
@@ -54,5 +58,16 @@ public class Constants {
     //player start position
     public static final Vector2 START_POSITION = new Vector2(10,10);
 
+    public static final String STAR_ATLAS = "atlas/star.atlas";
+    public static final String fontPath = "font/stencil.fnt";
+
+    public static final Map<String, String> LEVEL_SOUNDS =
+            Collections.unmodifiableMap(new HashMap<String, String>() {
+                {
+                    put("sndStar", "sfx/sndStar.ogg");
+                    put("sndGone", "sfx/sndGone.ogg");
+                    put("sndBump", "sfx/sndBump.ogg");
+                }
+            });
 
 }

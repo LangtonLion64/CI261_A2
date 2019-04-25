@@ -10,6 +10,7 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 import com.group.game.utility.Constants;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 import java.util.Comparator;
 
@@ -38,6 +39,9 @@ public abstract class AnimatedSprite extends Sprite {
         playmode = Animation.PlayMode.NORMAL;
         initAtlas(atlasString);
         createCollisionRect();
+        Array<TextureAtlas.AtlasRegion> regions = new
+                Array<TextureAtlas.AtlasRegion>(atlas.getRegions());
+        regions.sort(new RegionComparator());
     }
 
     public void createCollisionRect(){

@@ -7,16 +7,20 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+import com.badlogic.gdx.math.Vector2;
 import com.group.game.TBWGame;
 import com.group.game.bodies.PlayerCharacter;
+import com.group.game.bodies.PowerUpSprite;
 import com.group.game.physics.WorldManager;
 import com.group.game.utility.CameraManager;
 import com.group.game.utility.Constants;
 import com.group.game.utility.HUD;
 
+import static com.group.game.utility.Constants.MEDIUM;
 import static com.group.game.utility.Constants.PLAYER_ATLAS_PATH;
 import static com.group.game.utility.Constants.SMALL;
 import static com.group.game.utility.Constants.START_POSITION;
+import static com.group.game.utility.Constants.STAR_ATLAS;
 import static com.group.game.utility.Constants.UNITSCALE;
 import static com.group.game.utility.Constants.VIRTUAL_HEIGHT;
 import static com.group.game.utility.Constants.VIRTUAL_WIDTH;
@@ -31,6 +35,7 @@ public class GameScreen extends ScreenAdapter {
     private TiledMap tiledMap;
     private OrthogonalTiledMapRenderer orthogonalTiledMapRenderer;
     private PlayerCharacter smif;
+    private PowerUpSprite powerup;
     private HUD gameHUD;
     private CameraManager cameraManager;
     private float frameDelta = 0;
@@ -52,6 +57,8 @@ public class GameScreen extends ScreenAdapter {
         if(!WorldManager.isInitialised()){WorldManager.initialise(game,tiledMap);}
         //player
         smif = new PlayerCharacter(PLAYER_ATLAS_PATH,SMALL,START_POSITION);
+        powerup = new PowerUpSprite(STAR_ATLAS,MEDIUM,new Vector2(5,5));
+        powerup.startupRoutine();
         cameraManager = new CameraManager(game.camera,tiledMap);
         cameraManager.setTarget(smif);
         gameHUD = new HUD(game.batch,smif,game);
@@ -61,6 +68,7 @@ public class GameScreen extends ScreenAdapter {
     public void render(float delta) {
         frameDelta += delta;
         smif.update(frameDelta);
+        powerup.update(frameDelta);
         gameHUD.update(delta);
         game.batch.setProjectionMatrix(game.camera.combined);
         clearScreen();
@@ -74,6 +82,7 @@ public class GameScreen extends ScreenAdapter {
         cameraManager.update();
         game.batch.begin();
         smif.draw(game.batch);
+        powerup.draw(game.batch);
         game.batch.end();
         gameHUD.stage.draw();
         WorldManager.getInstance().debugRender();
