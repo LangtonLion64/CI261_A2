@@ -40,6 +40,7 @@ public class UniversalResource {
 
     public void setScreenText(String txt){
         screenText = txt;
+        font.getData().setScale(0.2f, 0.2f);
     }
 
     public String getScreenText(){

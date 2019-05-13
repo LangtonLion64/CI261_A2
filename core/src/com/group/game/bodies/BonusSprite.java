@@ -37,7 +37,7 @@ public class BonusSprite extends AnimatedSprite
 
     private TweenData tweenData;
     private TweenManager tweenManager;
-    private Sound CoinCollect = Gdx.audio.newSound(Gdx.files.internal("sfx/CoinCollect.wav"));
+    private Sound CoinCollect = Gdx.audio.newSound(Gdx.files.internal("sfx/CoinCollect.wav")); //locating the coin collect sound
 
     public BonusSprite(String atlasString, Texture t, Vector2 pos)
     {
@@ -53,7 +53,7 @@ public class BonusSprite extends AnimatedSprite
         tweenData.setColor(this.getColor());
         tweenData.setScale(this.getScaleX());
         tweenManager = UniversalResource.getInstance().getTweenManager();
-        GameScreen.handleCollision = false;
+        GameScreen.handleCollision = false; //sets handle collision to false
     }
 
     private TweenData getTweenData()
@@ -73,15 +73,15 @@ public class BonusSprite extends AnimatedSprite
     }
 
     public void closeBadgeCollected(){
-        Tween.to(tweenData, TweenDataAccessor.TYPE_ROTATION,2000f)
-                .target(360).start(tweenManager);
-        Tween.to(tweenData, TweenDataAccessor.TYPE_SCALE, 2000f)
-                .target(0f).start(tweenManager)
+        Tween.to(tweenData, TweenDataAccessor.TYPE_ROTATION,2000f) //changes rotation over 2000 frames
+                .target(360).start(tweenManager); //target to rotate 360 degrees
+        Tween.to(tweenData, TweenDataAccessor.TYPE_SCALE, 2000f)//changes scale over 2000 frames
+                .target(0f).start(tweenManager) //target to scale to 0
                 .setCallback(new TweenCallback() {
                     @Override
                     public void onEvent(int type, BaseTween<?> source) {
                         setAnimation(Animation.PlayMode.NORMAL);
-                        CoinCollect.play();
+                        CoinCollect.play(); //Plays the coin collected sound
                         Gdx.app.log("TAG", "Testerino");
                     }
                 })
@@ -90,15 +90,15 @@ public class BonusSprite extends AnimatedSprite
 
     public void BadgeCollected(){
         Timeline.createSequence()
-                .push(Tween.to(tweenData, TweenDataAccessor.TYPE_SCALE, 1000f)
-                        .target(1.5f)
-                        .delay(1000)).start(tweenManager)
+                .push(Tween.to(tweenData, TweenDataAccessor.TYPE_SCALE, 1000f) //changes the scale over a duration of 1000 frames
+                        .target(1.5f) //the target size for the scale
+                        .delay(1000)).start(tweenManager) //delay of 1000 frames then the call back
                 .setCallback(new TweenCallback() {
                     @Override
                     public void onEvent(int type, BaseTween<?> source) {
                         setAnimation(Animation.PlayMode.LOOP);
                         update(2);
-                        closeBadgeCollected();
+                        closeBadgeCollected(); //Calls closeBadgeCollected function
                     }
                 });
     }
@@ -106,9 +106,9 @@ public class BonusSprite extends AnimatedSprite
     {
         Timeline.createSequence()
                 .push(Tween.to(tweenData,TweenDataAccessor.TYPE_POS, 100f)
-                        .target(getX(), 10)
-                        .repeat(10, 100f)
-                        .delay(200f)).start(tweenManager)
+                        .target(getX(), 10) //get the x position and I manually put the y
+                        .repeat(10, 100f) //this repeats it 10 times with a delay 100 frames
+                        .delay(200f)).start(tweenManager) //then a delay of 200 frames before running the callback
                 .setCallback(new TweenCallback()
                 {
                     @Override
@@ -116,10 +116,9 @@ public class BonusSprite extends AnimatedSprite
                     {
                         setAnimation(Animation.PlayMode.LOOP);
                         update(2);
-                        BadgeCollected();
+                        BadgeCollected();//calls the badge collected function
                     }
                 });
-
     }
 
 }

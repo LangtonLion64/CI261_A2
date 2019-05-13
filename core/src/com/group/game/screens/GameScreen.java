@@ -56,7 +56,7 @@ public class GameScreen extends ScreenAdapter {
     private HUD gameHUD;
     private CameraManager cameraManager;
     private float frameDelta = 0;
-    public static boolean handleCollision = false;
+    public static boolean handleCollision = false; //Handle collision
 
     public GameScreen(TBWGame tbwGame){
         this.game = tbwGame;
@@ -68,13 +68,15 @@ public class GameScreen extends ScreenAdapter {
         game.batch.setProjectionMatrix(game.camera.combined);
     }
 
+    //update function that is called 60 times per second
     public void update(){
-        if (!handleCollision){
-            if (Intersector.overlaps(badge.getBoundingRectangle(), smif.getBoundingRectangle())){
-                handleCollision = true;
-                GameData.getInstance().addScore(10);
-                HUD.addScore(10);
-                badge.BadgeWaiting();
+        if (!handleCollision){ //checks that handle collision is not true
+            UniversalResource.getInstance().setScreenText("Collect badge"); //sets the txt value in the UniversalResource class
+            if (Intersector.overlaps(badge.getBoundingRectangle(), smif.getBoundingRectangle())){ //checks if badge rectangle and player rectangle overlaps
+                handleCollision = true; //sets the handle collision to true
+                GameData.getInstance().addScore(10); //gets the add score function from GameData and passes it a value of 10
+                HUD.addScore(10); //gets the add score function from HUD and passes it a value of 10 which updates the HUD to show 10
+                badge.BadgeWaiting(); //runs the function BadgeWaiting from BonusSprite
             }
         }
     }
@@ -88,6 +90,7 @@ public class GameScreen extends ScreenAdapter {
         if(!WorldManager.isInitialised()){WorldManager.initialise(game,tiledMap);}
         //player
         smif = new PlayerCharacter(PLAYER_ATLAS_PATH,SMALL,START_POSITION);
+        //Creates a new BonusSprite from the badge atlas with a size of medium and using the start position I set in the Constants
         badge = new BonusSprite(BADGE_ATLAS, MEDIUM, BADGE_START_POSITION);
         powerup = new PowerUpSprite(STAR_ATLAS,MEDIUM,new Vector2(5,5));
         //powerup.startupRoutine();
@@ -101,13 +104,13 @@ public class GameScreen extends ScreenAdapter {
         frameDelta += delta;
         smif.update(frameDelta);
         powerup.update(frameDelta);
-        badge.update(frameDelta);
-        UniversalResource.getInstance().getTweenManager().update(frameDelta);
+        badge.update(frameDelta);//Updates the BonusSprite class
+        UniversalResource.getInstance().getTweenManager().update(frameDelta);//Updating the tween manager needed for running tween animations
         gameHUD.update(delta);
         game.batch.setProjectionMatrix(game.camera.combined);
         clearScreen();
         draw();
-        update();
+        update();//calls the update function
         WorldManager.getInstance().doPhysicsStep(delta);
 
     }
@@ -119,7 +122,8 @@ public class GameScreen extends ScreenAdapter {
         game.batch.begin();
         smif.draw(game.batch);
         powerup.draw(game.batch);
-        badge.draw(game.batch);
+        badge.draw(game.batch); //Draws the badge sprite on screen
+        UniversalResource.getInstance().getFont().draw(game.batch, UniversalResource.getInstance().getScreenText(), 5, 5); //Draws the font text on screen
         game.batch.end();
         gameHUD.stage.draw();
         WorldManager.getInstance().debugRender();

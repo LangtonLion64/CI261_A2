@@ -68,10 +68,10 @@ public class Constants {
 
     public static int X = 20;
     public static int Y = 5;
-    public static final Vector2 BADGE_START_POSITION = new Vector2(X,Y);
+    public static final Vector2 BADGE_START_POSITION = new Vector2(X,Y); //X and Y positions predefined
 
     public static final String WesternFont = "font/Western.fnt";
-    public static final String BADGE_ATLAS = "atlas/badge_assets.atlas";
+    public static final String BADGE_ATLAS = "atlas/badge_assets.atlas"; //How the game should access the badge atlas
 
     public static final String STAR_ATLAS = "atlas/star.atlas";
     public static final String fontPath = "font/stencil.fnt";
