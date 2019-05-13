@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="2019.01.30" orientation="orthogonal" renderorder="right-down" width="124" height="30" tilewidth="32" tileheight="32" infinite="0" backgroundcolor="#9684e6" nextlayerid="8" nextobjectid="14">
- <tileset firstgid="1" source="GroundTiles.tsx"/>
+<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="right-down" width="124" height="30" tilewidth="32" tileheight="32" infinite="0" backgroundcolor="#9684e6" nextlayerid="8" nextobjectid="19">
+ <tileset firstgid="1" source="Sand.tsx"/>
+ <tileset firstgid="2" source="Saloon.tsx"/>
+ <tileset firstgid="3" source="Cactus.tsx"/>
+ <tileset firstgid="4" source="Rock.tsx"/>
+ <tileset firstgid="5" source="Wagon.tsx"/>
  <layer id="6" name="background" width="124" height="30" visible="0">
   <data encoding="base64" compression="zlib">
    eJztwQENAAAAwqD3T20ON6AAAAAAAAAAAAAAAAAAAHgyOiAAAQ==
@@ -8,26 +12,10 @@
  </layer>
  <layer id="7" name="platforms" width="124" height="30">
   <data encoding="base64" compression="zlib">
-   eJztxbENACAIADCixkT/P5iFK6BdGgEAAAAAAAAAAAAAAABM8erv1u9golUft/7WCc7MA10=
+   eJzt08EKgCAMAFAr+/9f7tIhhmYS1GHvwRB0G0O0FAAAAAAAAAAAAAAAgLZ6rtvgvLc3UxfF2mvNPsh9mr9OzBF71LDG87vaON/b+2jlxPl6fchnEWmCfP5+c+Lb/30AvpIBZA==
   </data>
  </layer>
  <objectgroup id="3" name="physics" offsetx="-1" offsety="-1">
-  <object id="2" name="platform_2" type="RectangleMapObject" x="573.647" y="89.941" width="189.196" height="63">
-   <properties>
-    <property name="material" value="ice"/>
-   </properties>
-  </object>
-  <object id="4" name="platform_3" type="RectangleMapObject" x="865.078" y="92.686" width="244.059" height="156">
-   <properties>
-    <property name="material" value="ice"/>
-   </properties>
-  </object>
-  <object id="5" name="platform_4" type="Rectangle" x="1375.33" y="113.176" width="63.3529" height="61">
-   <properties>
-    <property name="material" value="ice"/>
-   </properties>
-  </object>
-  <object id="8" name="platform_1" type="RectangleMapObject" x="282.843" y="68.804" width="250" height="66.2745"/>
   <object id="9" name="platform_0" type="RectangleMapObject" x="1" y="833.843" width="3967.33" height="126">
    <properties>
     <property name="material" value="ice"/>
@@ -43,7 +31,32 @@
     <property name="material" value="ice"/>
    </properties>
   </object>
-  <object id="12" name="platform_3" type="RectangleMapObject" x="1551.02" y="41.324" width="412.314" height="63">
+  <object id="12" name="platform_3" type="RectangleMapObject" x="1724.27" y="772.324" width="63.064" height="3.75">
+   <properties>
+    <property name="material" value="ice"/>
+   </properties>
+  </object>
+  <object id="14" name="platform_3" type="RectangleMapObject" x="1339.8" y="772.792" width="63.064" height="3.75">
+   <properties>
+    <property name="material" value="ice"/>
+   </properties>
+  </object>
+  <object id="15" name="platform_3" type="RectangleMapObject" x="2267.8" y="772.792" width="63.064" height="3.75">
+   <properties>
+    <property name="material" value="ice"/>
+   </properties>
+  </object>
+  <object id="16" name="platform_3" type="RectangleMapObject" x="2523.8" y="772.792" width="63.064" height="3.75">
+   <properties>
+    <property name="material" value="ice"/>
+   </properties>
+  </object>
+  <object id="17" name="platform_3" type="RectangleMapObject" x="2749.13" y="771.458" width="63.064" height="3.75">
+   <properties>
+    <property name="material" value="ice"/>
+   </properties>
+  </object>
+  <object id="18" name="platform_3" type="RectangleMapObject" x="1862.47" y="736.792" width="246.397" height="5.75">
    <properties>
     <property name="material" value="ice"/>
    </properties>
