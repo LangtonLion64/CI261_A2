@@ -51,7 +51,7 @@ public class GameScreen extends ScreenAdapter {
     private TiledMap tiledMap;
     private OrthogonalTiledMapRenderer orthogonalTiledMapRenderer;
     private PlayerCharacter smif;
-    private BonusSprite badge;
+    private BonusSprite badge; //Link to the BonusSprite class
     private PowerUpSprite powerup;
     private HUD gameHUD;
     private CameraManager cameraManager;
@@ -77,6 +77,7 @@ public class GameScreen extends ScreenAdapter {
                 GameData.getInstance().addScore(10); //gets the add score function from GameData and passes it a value of 10
                 HUD.addScore(10); //gets the add score function from HUD and passes it a value of 10 which updates the HUD to show 10
                 badge.BadgeWaiting(); //runs the function BadgeWaiting from BonusSprite
+                UniversalResource.getInstance().setScreenText("Badge collected"); //Changes the text value
             }
         }
     }

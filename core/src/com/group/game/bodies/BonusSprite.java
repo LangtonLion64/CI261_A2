@@ -82,7 +82,7 @@ public class BonusSprite extends AnimatedSprite
                     public void onEvent(int type, BaseTween<?> source) {
                         setAnimation(Animation.PlayMode.NORMAL);
                         CoinCollect.play(); //Plays the coin collected sound
-                        Gdx.app.log("TAG", "Testerino");
+                        UniversalResource.getInstance().setScreenText(""); //sets text to empty again
                     }
                 })
                 .start(tweenManager);
