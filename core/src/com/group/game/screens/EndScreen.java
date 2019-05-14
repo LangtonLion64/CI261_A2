@@ -10,6 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.group.game.utility.GameData;
+import com.group.game.utility.HUD;
 
 import static com.group.game.utility.Constants.VIRTUAL_HEIGHT;
 import static com.group.game.utility.Constants.VIRTUAL_WIDTH;
@@ -50,7 +51,7 @@ public class EndScreen extends ScreenAdapter {
     private void createScoreAndTimer(){
         //define labels using the String, and a Label style consisting of a font and color
         headerLabel = new Label("LEVEL ONE SCORE", new Label.LabelStyle(new BitmapFont(), Color.LIME));
-        scoreLabel = new Label(String.format("%06d", GameData.getInstance().getScore()), new Label.LabelStyle(new BitmapFont(), Color.YELLOW));
+        scoreLabel = new Label(String.format("%06d", HUD.getScore()), new Label.LabelStyle(new BitmapFont(), Color.YELLOW));
         linkLabel = new Label("POINTS", new Label.LabelStyle(new BitmapFont(), Color.YELLOW));
         //add labels to table
         tableData.add(headerLabel).padLeft(150);
